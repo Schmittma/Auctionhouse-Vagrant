@@ -1,0 +1,17 @@
+#!/bin/bash
+
+sudo apt-get update
+sudo apt-get install -y haproxy
+
+cp /vagrant/resources/haproxy.cfg /etc/haproxy/haproxy.cfg
+rm /vagrant/resources/test
+touch /vagrant/resources/test
+
+for i in `seq 0 $((INSTANCES-1))`
+do
+  address=$((WEB_START+i))
+  echo "server node${i} ${WEB_BASE}${address}:${WEB_PORT} check" >> /etc/haproxy/haproxy.cfg
+  echo "server node${i} ${WEB_BASE}${address}:${WEB_PORT} check" >> /vagrant/resources/test
+done
+
+service haproxy reload

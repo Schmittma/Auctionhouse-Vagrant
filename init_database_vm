@@ -1,0 +1,10 @@
+#!/bin/bash
+
+apt-get update
+apt-get -y install postgresql postgresql-contrib
+su postgres -c "echo $DB_PASSWORD | createuser $DB_USER --password"
+su postgres -c "createdb -O $DB_USER $DB_NAME"
+
+su postgres -c "echo "listen_addresses='*'" >> /etc/postgresql/*/main/postgresql.conf"
+su postgres -c "echo "host all all 0.0.0.0/0 trust" >> /etc/postgresql/*/main/pg_hba.conf"
+service postgresql restart
