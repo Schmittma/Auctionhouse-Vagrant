@@ -47,6 +47,7 @@ Vagrant.configure('2') do |config|
   config.vm.define 'lb' do |cfg|
     cfg.vm.hostname = 'lb'
     cfg.vm.network 'private_network', ip: ENTRY_POINT
+    cfg.vm.network 'forwarded_port', guest: 80, host: 8085
     cfg.vm.provision 'shell',
        path: 'init_load_balancer',
        env: {
