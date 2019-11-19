@@ -1,1 +1,2 @@
 server node0 192.168.42.40:3000 check
+server node1 192.168.42.41:3000 check
