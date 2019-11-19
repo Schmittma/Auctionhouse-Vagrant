@@ -11,7 +11,6 @@ WEB_PORT = 3000
 
 Vagrant.configure('2') do |config|
   config.vm.box = "ubuntu/bionic64"
-  config.ssh.forward_agent = true
 
   config.vm.define "db" do |cfg|
     cfg.vm.hostname = "db"
