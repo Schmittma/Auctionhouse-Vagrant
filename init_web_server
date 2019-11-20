@@ -11,4 +11,4 @@ else
   git clone https://github.com/NoRyyZ/Auktionshaus
   cd Auktionshaus
 fi
-nodejs app.js --port ${WEB_PORT} --db ${DB_ADDRESS} --db_port ${DB_PORT}&
+nodejs app.js --port ${WEB_PORT} --db ${DB_ADDRESS} --db_port ${DB_PORT} --db_user ${DB_USER} --db_pw ${DB_PASSWORD} --db_name ${DB_NAME}&
