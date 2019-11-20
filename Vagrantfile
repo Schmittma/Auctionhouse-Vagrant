@@ -35,11 +35,12 @@ Vagrant.configure('2') do |config|
         path: 'init_web_server',
         privileged: true,
         env: {
-	  WEB_PORT: WEB_PORT,
-	  DB_ADDRESS: DB_ADDRESS,
+	      WEB_PORT: WEB_PORT,
+	      DB_ADDRESS: DB_ADDRESS,
           DB_PORT: DB_PORT,
           DB_USER: DB_USER,
-	  DB_PASSWORD: DB_PASSWORD,
+    DB_PASSWORD: DB_PASSWORD,
+    DB_NAME: DB_NAME,
         }
       cfg.vm.post_up_message = "Application server #{cfg.vm.hostname} is available."
     end
