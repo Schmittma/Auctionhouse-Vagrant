@@ -11,6 +11,7 @@ WEB_PORT = 3000
 
 Vagrant.configure('2') do |config|
   config.vm.box = "ubuntu/bionic64"
+  config.vm.memory = 1024
 
   config.vm.define "db" do |cfg|
     cfg.vm.hostname = "db"
