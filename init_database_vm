@@ -5,7 +5,7 @@ apt-get -y install postgresql postgresql-contrib
 
 wget https://raw.githubusercontent.com/NoRyyZ/Auktionshaus/master/Auktionshaus_SQL
 
-su postgres -c "echo ${DB_PASSWORD} | createuser ${DB_USER} --password"
+su postgres -c "echo ${DB_PASSWORD} | createuser -s ${DB_USER} --password"
 su postgres -c "createdb -O ${DB_USER} ${DB_NAME}"
 sudo -u postgres psql -d ${DB_NAME} < Auktionshaus_SQL
 
